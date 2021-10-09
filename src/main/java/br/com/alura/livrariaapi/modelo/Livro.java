@@ -6,10 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -30,7 +27,7 @@ public class Livro {
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private Long id;
     private String titulo;
-    @Column(name = "data_nascimento")
+    @Column(name = "data_lancamento")
     private LocalDate dataLancamento;
     @Column(name = "numero_paginas")
     private Integer numeroPaginas;

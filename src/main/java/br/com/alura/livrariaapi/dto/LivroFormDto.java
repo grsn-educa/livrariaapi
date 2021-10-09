@@ -28,7 +28,7 @@ public class LivroFormDto {
     @NotBlank(message = "autor não deve estar vazio / em branco")
     private String autor;
     
-    @JsonAlias("livro_id")
-    private Long livroId;
+    @JsonAlias("autor_id")
+    private Long autorId;
 
 }
