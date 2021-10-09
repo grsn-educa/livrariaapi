@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class AutorService {
@@ -24,9 +25,11 @@ public class AutorService {
                 .map(a, AutorDto.class))
                 .collect(Collectors.toList());
     }
-
+    
+    @Transactional
     public void cadastrar(AutorFormDto dto) {
         Autor autor = modelMapper.map(dto, Autor.class);
+        autor.setId(null);
         autorRepository.save(autor);
     }
 

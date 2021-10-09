@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class LivroService {
@@ -27,8 +28,10 @@ public class LivroService {
                 .collect(Collectors.toList());
     }
     
+    @Transactional
     public void cadastrar(LivroFormDto dto) {
         Livro livro = modelMapper.map(dto, Livro.class);
+        livro.setId(null);
         livroRepository.save(livro);
     }
     
