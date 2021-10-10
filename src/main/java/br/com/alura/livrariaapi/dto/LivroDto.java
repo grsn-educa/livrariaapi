@@ -11,6 +11,6 @@ public class LivroDto {
     private Long id;
     private String titulo;
     private LocalDate dataLancamento;
-    private int numeroPaginas;
+    private Integer numeroPaginas;
     private String autor;
 }

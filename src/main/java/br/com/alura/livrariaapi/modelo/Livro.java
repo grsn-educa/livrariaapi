@@ -31,7 +31,8 @@ public class Livro {
     private LocalDate dataLancamento;
     @Column(name = "numero_paginas")
     private Integer numeroPaginas;
-
+    private Integer quantidade;
+    
     @ManyToOne
     private Autor autor;
     

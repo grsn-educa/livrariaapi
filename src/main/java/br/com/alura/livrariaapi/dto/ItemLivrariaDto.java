@@ -10,6 +10,5 @@ import lombok.Getter;
 public class ItemLivrariaDto {
     
     private String nome;
-//    private Double percentual;
-    
+    private  String titulo;
 }
