@@ -1,6 +1,7 @@
 
 package br.com.alura.livrariaapi.dto;
 
+import java.math.BigDecimal;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -9,6 +10,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public class ItemLivrariaDto {
     
-    private String nome;
-    private  String titulo;
+    private String autor;
+    private Long quantidade;
+    private Double percentual;
 }

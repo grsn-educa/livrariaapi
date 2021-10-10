@@ -9,21 +9,11 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface LivroRepository extends JpaRepository<Livro, Long> {
     
-    @Query("select new br.com.alura.livrariaapi.dto.ItemLivrariaDto(a.nome, l.titulo) from Autor a, Livro l")
-    public List<ItemLivrariaDto> relatorioLivrosPorAutor();
+//    @Query("select new br.com.alura.livrariaapi.dto.ItemLivrariaDto(a.nome, l.titulo) from Autor a, Livro l")
     
-    /*
-    +-+-+-+-+-+-+-+-+-+-+
-    |D|I|S|C|L|A|I|M|E|R|
-    +-+-+-+-+-+-+-+-+-+-+
-
-    SQL que retorna a pesquisa, não consegui colocar
-    no @Query.
-
-    select a.nome, count(l.id),round(count(l.autor_id) /(select  count(l.titulo) from livraria.livros l)* 100,1)
-    from livraria.livros l, livraria.autores a 
-    where l.autor_id = a.id 
-    group by l.autor_id;
-    */
+    @Query("select new br.com.alura.livrariaapi.dto.ItemLivrariaDto("
+            + "l.autor.nome, count(*), round(count(*) * 1.0 / (select count(*) from Livro) * 100.0,1)    as percentual) "
+            + " from Livro l group by l.autor order by percentual desc")
+    public List<ItemLivrariaDto> relatorioLivrosPorAutor();
     
 }
