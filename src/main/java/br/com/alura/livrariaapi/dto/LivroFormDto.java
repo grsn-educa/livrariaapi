@@ -14,8 +14,8 @@ import lombok.Setter;
 @Setter
 public class LivroFormDto {
     
-    @NotBlank(message = "titulo não deve estar vazio / em branco")
-    @Size(min = 10, message = "o titulo deve conter no minimo 10 caracteres")
+    @NotBlank
+    @Size
     private String titulo;
     
     @PastOrPresent
@@ -25,7 +25,7 @@ public class LivroFormDto {
     @Min(100)
     private int numeroPaginas;
     
-    @NotBlank(message = "autor não deve estar vazio / em branco")
+    @NotBlank
     private String autor;
     
     @JsonAlias("autor_id")

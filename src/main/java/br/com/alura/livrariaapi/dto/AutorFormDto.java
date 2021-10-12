@@ -10,13 +10,13 @@ import lombok.Setter;
 @Setter
 public class AutorFormDto {
 
-    @NotBlank(message = "campo nome não deve estar nulo / vazio")
+    @NotBlank
     private String nome;
-    @NotBlank(message = "campo email não deve estar nulo / vazio")
+    @NotBlank
     private String email;
     @PastOrPresent
     private LocalDate nascimento;
-    @NotBlank(message = "campo curriculo não deve estar nulo / vazio")
+    @NotBlank
     private String curriculo;
 
 }
